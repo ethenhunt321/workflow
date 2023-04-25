@@ -6,3 +6,12 @@ jobs:
     steps:
       - name: echo hello world
         run: echo "hello world"
+        
+  multiple-hello-job:
+    runs-on: ububtu-latest
+    strategy:
+      matrix:
+        looper: [1,2,3,4,5]
+    steps:
+      - name: echo multiple hello world
+        run: echo "hello world" ${{matrix.looper}}

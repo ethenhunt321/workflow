@@ -7,23 +7,22 @@ jobs:
     runs-on: ubuntu-latest
     environment: Dev
     steps:
-      -name: echo env
-      run: running from dev environment
-      
-   
-    QaJob:
+    - name: echo env
+      run: echo running from dev environment
+
+  QaJob:
       runs-on: ubuntu-latest
-      environemt: Qa
-      needs: Dev
+      environment: Qa
+      needs: DevJob
       steps:
-        -name: echo env
-        run: running from qa environment
+      - name: echo env
+        run: echo running from qa environment
       
       
-    PrdJob:
+  PrdJob:
       runs-on: ubuntu-latest
-      environemt: Prd
-      needs: Qa
+      environment: Prd
+      needs: QaJob
       steps:
-          -name: echo env
-          run: running from prd environement
+        - name: echo env
+          run: echo running from prd environement

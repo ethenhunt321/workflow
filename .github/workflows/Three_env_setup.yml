@@ -1,30 +1,29 @@
 name : Three environemnt setup
+on : workflow_dispatch
 
-# allow this workflow to run manually
--on : workflow_dispatch
 jobs:
   
   DevJob:
     runs-on: ubuntu-latest
-    environemt: Dev
+    environment: Dev
     steps:
       -name: echo env
       run: running from dev environment
       
    
     QaJob:
-    runs-on: ubuntu-latest
-    environemt: Qa
-    needs: Dev
-    steps:
-      -name: echo env
-      run: running from qa environment
+      runs-on: ubuntu-latest
+      environemt: Qa
+      needs: Dev
+      steps:
+        -name: echo env
+        run: running from qa environment
       
       
     PrdJob:
-    runs-on: ubuntu-latest
-    environemt: Prd
-    needs: Qa
-    steps:
-      -name: echo env
-      run: running from prd environment
+      runs-on: ubuntu-latest
+      environemt: Prd
+      needs: Qa
+      steps:
+          -name: echo env
+          run: running from prd environement

@@ -8,7 +8,7 @@ jobs:
     environment: Dev
     steps:
     - name: echo env
-      run: echo running from ${{ env.DEV_ENV }} with secret ${{ secrets.ENV }} environment
+      run: echo running from ${{ github.repository.DEV_ENV }} with secret ${{ secrets.ENV }} environment
 
   QaJob:
       runs-on: ubuntu-latest
@@ -16,7 +16,7 @@ jobs:
       needs: DevJob
       steps:
       - name: echo env
-        run: echo running from ${{env.QA_ENV}} with secret ${{ secrets.ENV }} environment
+        run: echo running from ${{github.repository.QA_ENV}} with secret ${{ secrets.ENV }} environment
       
       
   PrdJob:

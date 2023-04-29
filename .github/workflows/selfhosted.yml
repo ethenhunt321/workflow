@@ -1,0 +1,10 @@
+name : self hosted demo
+on : push
+jobs :
+
+  echo-job:
+    runs-on : self-hosted
+    steps :
+      -name : echo hello world
+      run: echo "hello world"
+  

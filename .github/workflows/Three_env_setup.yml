@@ -8,7 +8,7 @@ jobs:
     environment: Dev
     steps:
     - name: echo env
-      run: echo running from ${{ vars.DEV_ENV }} with secret ${{ secrets.ENV }} environment
+      run: echo running from ${{ env.DEV_ENV }} with secret ${{ secrets.ENV }} environment
 
   QaJob:
       runs-on: ubuntu-latest
